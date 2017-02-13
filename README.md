@@ -40,17 +40,14 @@ uncommenting code in `trainModel()`.
 #### Steps for usage
 
 1. `Makefile`
-    * Liblinear-2.1 must be compiled and the path must be correctly set
-    * yael must be setup (for k means) and corresponding paths setup
+    * Install liblinear packages. On Ubuntu the names are `liblinear-dev` and `liblinear3`
+    * Compile and install bundled yael library
     Link here: [yael](https://gforge.inria.fr/projects/yael/)
     * cs and vp options should have correctly `-embed-path` options
 
 1. `filepaths.h`:
     * Make sure all the paths are accessible and correctly set
     * Any change to this file, should be followed by re-compiling the code
-
-1. `liblinearWrapper.h`:
-    * Additionally, you also need to link the correct path to liblibear
 
 1. Other dependencies:
     * NTLK is used for tokenization and lemmatization (VP task)

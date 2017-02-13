@@ -1,4 +1,4 @@
-# include "visualFeatures.h"
+#include "visualFeatures.h"
 // Storing the feature hash (globals)
 struct featureWord* featHashWords; // Vocab for feature words
 int* featHashInd; // Storing the hash indices that reference to vocab

@@ -3,29 +3,27 @@ CC = @gcc
 #CFLAGS = -lm -pthread -O3 -march=native -Wall -funroll-loops -Wno-unused-result
 
 # Liblinear path
-LINEARPATH=/home/satwik/VisualWord2Vec/libs/liblinear-2.1/
-LIBLINEAR=$(LINEARPATH)linear.o $(LINEARPATH)tron.o $(LINEARPATH)blas/blas.a
-BLAS=$(LINEARPATH)blas/blas.a
 
-YAEL = -I /home/satwik/VisualWord2Vec/libs/yael -L /home/satwik/VisualWord2Vec/libs/yael/yael -lyael
+LOCAL_INCLUDE=/usr/local/include
+LOCAL_LIB=/usr/local/lib
 
-CFLAGS = -lm -pthread -O3 -march=native -Wall -lstdc++ -funroll-loops -Wno-unused-value $(YAEL) 
+CFLAGS=-pthread -O3 -march=native -Wall -funroll-loops -Wno-unused-value -I$(LOCAL_INCLUDE)
 
+BIN=bin/
 MOVE=mv *.o $(BIN)
-BIN = bin/
 
-NAMES = visword2vec.o	 \
-	visualFeatures.o \
-	vpFunctions.o	\
-	helperFunctions.o\
-	refineFunctions.o\
-	liblinearWrapper.o
+NAMES=visword2vec.o	 \
+      visualFeatures.o \
+      vpFunctions.o	\
+      helperFunctions.o\
+      refineFunctions.o\
+      liblinearWrapper.o
 
 OBJ=$(NAMES:%=$(BIN)%)
 SRCS=$(NAMES:%.o=%.c)
 
 all: $(OBJ)
-	$(CC) $(OBJ) -o $(BIN)visword2vec $(BLAS) $(LIBLINEAR) $(CFLAGS)
+	$(CC) $(CFLAGS) $(OBJ) -o $(BIN)visword2vec -llinear -lblas -lm -lstdc++ -L$(LOCAL_LIB) -lyael  
 
 $(BIN)%.o : %.c
 	$(CC) -c $< -o $@ $(CFLAGS)
