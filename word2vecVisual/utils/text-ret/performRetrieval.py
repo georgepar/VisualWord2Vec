@@ -25,7 +25,7 @@ if __name__ == '__main__':
 
     print 'Reading the tuples...'
     # Setting up paths
-    #dataPath = '/home/satwik/VisualWord2Vec/data/text-ret/';
+    #dataPath = 'data/text-ret/';
     tupPath = dataPath + 'text_ret_tuples.pickle';
     with open(tupPath, 'r') as dataFile:
         tupData = pickle.load(dataFile);

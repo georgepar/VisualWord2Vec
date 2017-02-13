@@ -1103,13 +1103,10 @@ int performCommonSenseTask(float* testTupleScores){
 // Common sense evaluation
 int performMultiCommonSenseTask(float* testTupleScores){
     printf("Common sense task with multi models....\n\n");
-    // Read the validation and test sets    
-    char testFile[] = "/home/satwik/VisualWord2Vec/data/test_features.txt";
-    char valFile[] = "/home/satwik/VisualWord2Vec/data/val_features.txt";
     
     if(noTest == 0 || noVal == 0)
         // Clean the strings for test and validation sets, store features
-        readTestValFiles(valFile, testFile);
+        readTestValFiles(VAL_FILE, TEST_FILE);
 
     // Get the features for test and validation sets
     // Re-evaluate the features for the entire vocab
@@ -1656,8 +1653,8 @@ void findBestTestTuple(float* baseScore, float* bestScore){
 
     // Do something here
     // Dump the tuples and embeddings along with base and best score
-    //char tupleFile[] = "/home/satwik/VisualWord2Vec/code/word2vecVisual/modelsNdata/all_test_tuples.txt";
-    //char embedFile[] = "/home/satwik/VisualWord2Vec/code/word2vecVisual/modelsNdata/all_test_embed.txt";
+    //char tupleFile[] = "word2vecVisual/modelsNdata/all_test_tuples.txt";
+    //char embedFile[] = "code/word2vecVisual/modelsNdata/all_test_embed.txt";
 
     // Saving only improved tuples
     //saveMultiTupleEmbeddings(tupleFile, embedFile, test, baseScore, bestScore, improvedInd, count);

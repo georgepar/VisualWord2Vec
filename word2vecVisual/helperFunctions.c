@@ -568,7 +568,7 @@ float*** readVisualFeatures(char* featPath, long* noFeats, int* visualFeatSize){
 
     //************************************************
     // Debugging
-    //char savePath[] = "/home/satwik/VisualWord2Vec/data/vis-genome/train/written_vis_features.txt";
+    //char savePath[] = "data/vis-genome/train/written_vis_features.txt";
     //saveVisualFeatures(features[0], noFeatures, visualFeatureSize, savePath);
     //************************************************
     free(params); free(threads);

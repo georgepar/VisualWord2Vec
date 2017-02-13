@@ -87,21 +87,12 @@ void tokenizeTrainSentences(){
 
 // Saving word2vec embeddings for all VP sentences
 void writeVPSentenceEmbeddings(){
-    // Path to the sentences_1
-    char readSent1[] = "/home/satwik/VisualWord2Vec/data/vp/vp_sentences1_lemma.txt";
-    char writeSent1[] = "/home/satwik/VisualWord2Vec/data/vp/vp_30_features_1.txt";
-    //char writeSent1[] = "/home/satwik/VisualWord2Vec/data/vp_orig_features_1.txt";
-    // Path to the sentences_2
-    char readSent2[] = "/home/satwik/VisualWord2Vec/data/vp/vp_sentences2_lemma.txt";
-    char writeSent2[] = "/home/satwik/VisualWord2Vec/data/vp/vp_30_features_2.txt";
-    //char writeSent2[] = "/home/satwik/VisualWord2Vec/data/vp_orig_features_2.txt";
-    
     struct Sentence* sentences1, *sentences2;
     long noSents1, noSents2;
 
     // read sentences
-    sentences1 = *readSentences(readSent1, &noSents1);
-    sentences2 = *readSentences(readSent2, &noSents2);
+    sentences1 = *readSentences(VP_TASK_SENTENCES_1, &noSents1);
+    sentences2 = *readSentences(VP_TASK_SENTENCES_2, &noSents2);
 
     // Tokenize sentences
     tokenizeSentences(sentences1, noSents1);
@@ -112,8 +103,8 @@ void writeVPSentenceEmbeddings(){
     computeSentenceEmbeddings(sentences2, noSents2);
 
     // write back to file
-    writeSentenceEmbeddings(writeSent1, sentences1, noSents1);
-    writeSentenceEmbeddings(writeSent2, sentences2, noSents2);
+    writeSentenceEmbeddings(VP_TASK_30_FEATURES_1, sentences1, noSents1);
+    writeSentenceEmbeddings(VP_TASK_30_FEATURES_2, sentences2, noSents2);
 }
 
 // Read all sentences along with features
