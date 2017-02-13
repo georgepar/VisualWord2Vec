@@ -12,7 +12,7 @@
 # include <limits.h>
 
 // For liblinear
-# include "/home/satwik/VisualWord2Vec/libs/liblinear-2.1/linear.h"
+# include <linear.h>
 # include "structs.h"
 # include "macros.h"
 

@@ -1,5 +1,5 @@
 // Definitions for functions related to the visual paraphrasing task
-# include "vpFunctions.h"
+#include "vpFunctions.h"
 
 // Globals for the current scope
 long noTrainVP = 0;
