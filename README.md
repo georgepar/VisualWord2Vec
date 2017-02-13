@@ -37,13 +37,27 @@ Currently only saving one embedding is supported. For multi embeddings simply tu
 the `trainMulti` flag (top of `visword2vec.c` file) to 1. However, saving can be done by
 uncommenting code in `trainModel()`.
 
-#### Steps for usage
+#### Steps for usage (Debian based systems)
 
-1. `Makefile`
+1. Build VisualWord2Vec
     * Install liblinear packages. On Ubuntu the names are `liblinear-dev` and `liblinear3`
-    * Compile and install bundled yael library
-    Link here: [yael](https://gforge.inria.fr/projects/yael/)
+    * Compile and install bundled yael library  
+    ```
+    cd yael
+    ./configure.sh --prefix=/usr/local/ --lapack="-lblas -llapack
+    make
+    sudo make install # Or sudo checkinstall -D (recommended)
+    ```
+    * Build `word2vecVisual`
+    ```
+    cd word2vecVisual
+    make
+    ```
     * cs and vp options should have correctly `-embed-path` options
+    
+   *Note*: If you want to use another version of `blas` and `lapack` when building `yael`
+           I (georgepar) recommend building xianyi's [OpenBlas](https://github.com/xianyi/OpenBLAS)
+           manually and linking to that. Ubuntu's `libblas` packages throw "Undefined reference to gotoblas" errors
 
 1. `filepaths.h`:
     * Make sure all the paths are accessible and correctly set
