@@ -55,7 +55,7 @@ uncommenting code in `trainModel()`.
     ```
     * cs and vp options should have correctly `-embed-path` options
     
-   *Note*: If you want to use another version of `blas` and `lapack` when building `yael`
+   *Note*: If you want to use another version of `blas` and `lapack` when building `yael`,
            I (georgepar) recommend building xianyi's [OpenBlas](https://github.com/xianyi/OpenBLAS)
            manually and linking to that. Ubuntu's `libblas` packages throw "Undefined reference to gotoblas" errors
 
